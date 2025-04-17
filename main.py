@@ -8,8 +8,8 @@ import pandas as pd
 
 spark = SparkSession.builder.appName("Detecting Malware in Network Traffic").getOrCreate()
 
-pd_df = pd.read_csv("/kaggle/input/network-malware-detection-connection-analysis/CTU-IoT-Malware-Capture-9-1conn.log.labeled.csv", sep=";")
-df = spark.read.csv("/kaggle/input/network-malware-detection-connection-analysis/CTU-IoT-Malware-Capture-9-1conn.log.labeled.csv", header=True, sep="|", inferSchema=True)
+pd_df = pd.read_csv("CTU-IoT-Malware-Capture-1-1conn.log.labeled.csv", sep=";")
+df = spark.read.csv("CTU-IoT-Malware-Capture-1-1conn.log.labeled.csv", header=True, sep="|", inferSchema=True)
 
 schema = StructType([
     StructField("ts", DoubleType(), True),
@@ -37,8 +37,8 @@ schema = StructType([
     StructField("detailed_label", StringType(), True)
 ])
 
-# df = spark.read.csv("/kaggle/input/network-malware-detection-connection-analysis/CTU-IoT-Malware-Capture-9-1conn.log.labeled.csv", header=True, sep="|", schema=schema)
 df = spark.read.csv("CTU-IoT-Malware-Capture-1-1conn.log.labeled.csv", header=True, sep="|", schema=schema)
+# df = spark.read.csv("CTU-IoT-Malware-Capture-1-1conn.log.labeled.csv", header=True, sep="|", schema=schema)
 
 df.limit(5).toPandas()
 
@@ -58,8 +58,8 @@ descriptive_stats = df.select(double_cols).describe().limit(5).toPandas()
 
 descriptive_stats.set_index("summary").T
 
-for col in df.columns:
-    df.groupBy(col).count().show(5)
+for c in df.columns:
+    df.groupBy(c).count().show(5)
     print("-"*100)
     
 cols_to_drop = ["uid", "id_orig_h", "id_orig_p", "id_resp_h", "id_resp_p", "local_orig", 
