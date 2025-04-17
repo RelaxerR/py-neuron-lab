@@ -37,7 +37,8 @@ schema = StructType([
     StructField("detailed_label", StringType(), True)
 ])
 
-df = spark.read.csv("/kaggle/input/network-malware-detection-connection-analysis/CTU-IoT-Malware-Capture-9-1conn.log.labeled.csv", header=True, sep="|", schema=schema)
+# df = spark.read.csv("/kaggle/input/network-malware-detection-connection-analysis/CTU-IoT-Malware-Capture-9-1conn.log.labeled.csv", header=True, sep="|", schema=schema)
+df = spark.read.csv("CTU-IoT-Malware-Capture-1-1conn.log.labeled.csv", header=True, sep="|", schema=schema)
 
 df.limit(5).toPandas()
 
