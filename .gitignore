@@ -1,0 +1,121 @@
+# Byte-compiled Python files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PyInstaller
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment files
+.env
+.flaskenv
+
+# Build directories
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+
+# Data files
+data/
+*.csv
+*.json
+*.xml
+*.xlsx
+*.db
+
+# Model files
+models/
+*.h5
+*.pkl
+*.pt
+*.bin
+*.onnx
+
+# Large files
+*.zip
+*.tar.gz
+*.7z
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# Virtual environments
+.python-version
+
+# PySpark-specific files
+# Spark event logs and temporary files
+spark-warehouse/
+metastore_db/
+derby.log
+*.lck
+
+# Spark worker and executor logs
+spark-logs/
+*.out
+
+# Spark checkpoint directories
+checkpoints/
+checkpoint/
+
+# Spark temporary files
+/tmp/
+_temp_*
+
+# Spark application logs
+*.stderr
+*.stdout
+
+# Spark configuration files (if not needed in the repo)
+*.properties
+*.conf
