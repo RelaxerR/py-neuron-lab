@@ -159,6 +159,25 @@ model = RandomForestClassifier(featuresCol="normalized_feature_vector", labelCol
 
 model = model.fit(train)
 
+# Оценка важности признаков
+importances = model.featureImportances
+print("Feature Importances:", importances)
+
+# Преобразование важности признаков в удобочитаемый формат
+import pandas as pd
+feature_importance_df = pd.DataFrame({
+    "Feature": X_cols,  # Список признаков
+    "Importance": importances.toArray()  # Важность признаков
+})
+
+# Сортировка по важности
+feature_importance_df = feature_importance_df.sort_values(by="Importance", ascending=False)
+print(feature_importance_df)
+
+# Прогнозирование на тестовой выборке
+test_prediction = model.transform(test)
+test_prediction.select("encoded_label", "prediction", "probability").limit(5).toPandas()
+
 test_prediction = model.transform(train)
 
 test_prediction.select("encoded_label", "prediction", "probability").limit(5).toPandas()
